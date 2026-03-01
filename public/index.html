@@ -1,1 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JP Reply Tool</title>
+</head>
+<body>
+  <h1>JP Reply Tool</h1>
+  <textarea id="tweet" rows="4" style="width:100%"></textarea>
+  <button onclick="analyze()">Analisa</button>
+  <pre id="result"></pre>
 
+<script>
+async function analyze() {
+  const tweet = document.getElementById("tweet").value;
+  const res = await fetch("/api/analyze", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({tweet})
+  });
+  const data = await res.json();
+  document.getElementById("result").textContent =
+    JSON.stringify(data, null, 2);
+}
+</script>
+</body>
+</html>
