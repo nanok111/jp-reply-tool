@@ -1,8 +1,0 @@
-{
-  "name": "jp-reply-tool",
-  "private": true,
-  "version": "1.0.0",
-  "scripts": {
-    "build": "echo build done"
-  }
-}
